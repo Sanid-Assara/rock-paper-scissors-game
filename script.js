@@ -17,6 +17,31 @@ switch (randomNumber) {
     break;
 }
 
+//Function determines the winner based on the rules and print the result to the console
+function getGameResult() {
+  if (
+    (player1Choice === "rock" && computerChoice === "scissors") ||
+    (player1Choice === "scissors" && computerChoice === "paper") ||
+    (player1Choice === "paper" && computerChoice === "rock")
+  ) {
+    return console.log(
+      `You chose ${player1Choice} and the computer chose ${computerChoice}. You win!`
+    );
+  } else if (
+    (player1Choice === "scissors" && computerChoice === "rock") ||
+    (player1Choice === "paper" && computerChoice === "scissors") ||
+    (player1Choice === "rock" && computerChoice === "paper")
+  ) {
+    return console.log(
+      `You chose ${player1Choice} and the computer chose ${computerChoice}. You lose!`
+    );
+  } else {
+    return console.log(
+      `You chose ${player1Choice} and the computer chose ${computerChoice}. It's a draw!`
+    );
+  }
+}
+
 //Validating Player 1's choice
 if (
   player1Choice !== "rock" &&
@@ -25,26 +50,5 @@ if (
 ) {
   console.log("Invalid option. Choose either rock, paper, or scissors.");
 } else {
-  //if statment determine the winner based on the rules and print the result to the console
-  if (
-    (player1Choice === "rock" && computerChoice === "scissors") ||
-    (player1Choice === "scissors" && computerChoice === "paper") ||
-    (player1Choice === "paper" && computerChoice === "rock")
-  ) {
-    console.log(
-      `You chose ${player1Choice} and the computer chose ${computerChoice}. You win!`
-    );
-  } else if (
-    (player1Choice === "scissors" && computerChoice === "rock") ||
-    (player1Choice === "paper" && computerChoice === "scissors") ||
-    (player1Choice === "rock" && computerChoice === "paper")
-  ) {
-    console.log(
-      `You chose ${player1Choice} and the computer chose ${computerChoice}. You lose!`
-    );
-  } else {
-    console.log(
-      `You chose ${player1Choice} and the computer chose ${computerChoice}. It's a draw!`
-    );
-  }
+  getGameResult();
 }
