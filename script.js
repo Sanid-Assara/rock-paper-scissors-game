@@ -8,37 +8,43 @@ let computerChoice;
 switch (randomNumber) {
   case 1:
     computerChoice = "rock";
-
     break;
   case 2:
     computerChoice = "paper";
-
     break;
   case 3:
     computerChoice = "scissors";
-
     break;
 }
 
-//if statment determine the winner based on the rules and print the result to the console
+//Validating Player 1's choice
 if (
-  (player1Choice === "rock" && computerChoice === "scissors") ||
-  (player1Choice === "scissors" && computerChoice === "paper") ||
-  (player1Choice === "paper" && computerChoice === "rock")
+  player1Choice !== "rock" &&
+  player1Choice !== "scissors" &&
+  player1Choice !== "paper"
 ) {
-  console.log(
-    `You chose ${player1Choice} and the computer chose ${computerChoice}. You win!`
-  );
-} else if (
-  (player1Choice === "scissors" && computerChoice === "rock") ||
-  (player1Choice === "paper" && computerChoice === "scissors") ||
-  (player1Choice === "rock" && computerChoice === "paper")
-) {
-  console.log(
-    `You chose ${player1Choice} and the computer chose ${computerChoice}. You lose!`
-  );
+  console.log("Invalid option. Choose either rock, paper, or scissors.");
 } else {
-  console.log(
-    `You chose ${player1Choice} and the computer chose ${computerChoice}. It's a draw!`
-  );
+  //if statment determine the winner based on the rules and print the result to the console
+  if (
+    (player1Choice === "rock" && computerChoice === "scissors") ||
+    (player1Choice === "scissors" && computerChoice === "paper") ||
+    (player1Choice === "paper" && computerChoice === "rock")
+  ) {
+    console.log(
+      `You chose ${player1Choice} and the computer chose ${computerChoice}. You win!`
+    );
+  } else if (
+    (player1Choice === "scissors" && computerChoice === "rock") ||
+    (player1Choice === "paper" && computerChoice === "scissors") ||
+    (player1Choice === "rock" && computerChoice === "paper")
+  ) {
+    console.log(
+      `You chose ${player1Choice} and the computer chose ${computerChoice}. You lose!`
+    );
+  } else {
+    console.log(
+      `You chose ${player1Choice} and the computer chose ${computerChoice}. It's a draw!`
+    );
+  }
 }
