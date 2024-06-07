@@ -1,3 +1,5 @@
+const colors = require("colors");
+
 //Player 1 choice with process.argv input
 let player1Choice = process.argv[2].toLowerCase();
 
@@ -25,7 +27,9 @@ function getGameResult() {
     (player1Choice === "paper" && computerChoice === "rock")
   ) {
     return console.log(
-      `You chose ${player1Choice} and the computer chose ${computerChoice}. You win!`
+      `      You chose ${player1Choice.bgCyan}.
+      computer chose ${computerChoice.bgMagenta}.
+      You ${"win!".green}`
     );
   } else if (
     (player1Choice === "scissors" && computerChoice === "rock") ||
@@ -33,11 +37,15 @@ function getGameResult() {
     (player1Choice === "rock" && computerChoice === "paper")
   ) {
     return console.log(
-      `You chose ${player1Choice} and the computer chose ${computerChoice}. You lose!`
+      `      You chose ${player1Choice.bgCyan}.
+      computer chose ${computerChoice.bgMagenta}.
+      You ${"lose!".red}`
     );
   } else {
     return console.log(
-      `You chose ${player1Choice} and the computer chose ${computerChoice}. It's a draw!`
+      `      You chose ${player1Choice.bgCyan}.
+      computer chose ${computerChoice.bgMagenta}.
+      It's a ${"draw!".yellow}`
     );
   }
 }
@@ -48,7 +56,9 @@ if (
   player1Choice !== "scissors" &&
   player1Choice !== "paper"
 ) {
-  console.log("Invalid option. Choose either rock, paper, or scissors.");
+  console.log(
+    "Invalid option. Choose either rock, paper, or scissors.".bgRed.white
+  );
 } else {
   getGameResult();
 }
